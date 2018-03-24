@@ -9,81 +9,84 @@
   
 </head>
 <body onload="resetTimes();" class="container">
-	<div>
+
     <div id="pageTitle">
       Now Serving Queue
     </div>
-		<table class="striped responsive-table" id="queue">
-			<thead class="blue">
-				<tr>
-					<th class="left">Name</th>
-          <th class="center">Minutes In Queue</th>
-          <th class="center">Course</th>
-					<th class="right">Lab Asst Name</th>
-				</tr>
-			</thead>
-			<tbody id="queueTable">
-				<tr id="tr0">
-					<td class="left">Billy Sue</td>
-					<td id="td0" class="center">7</td>
-          <td class="center">CS 124</td>
-          <td class="right">Larry Atwood</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-
-  <div>
+    <div>
     <form id="addHelpRequest" method="post">
-      <div class="baseBackground">
-          <table id="request">
-              <tbody>
+        <div class="baseBackground">
+            <table id="request">
+                <tbody>
                 <tr>
-                  <td style="width: 200px">
-                      Name:<br>
-                      <input id="name" type="text" text="" name="name"/>
-                  </td>
-                  <td style="width: 90px">
-                      Course:<br>
-                      <label>
-                      <input type="radio" name="course" value="CS 124" id="cs124" checked />
-                      CS 124</label>
-                  </td>
-                  <td style="width: 90px">
-                      <br>
-                      <label>
-                      <input type="radio" name="course" value="CS 165" id="cs165"/>
-                      CS 165</label>
-                  </td>
-                  <td style="width: 90px">
-                      <br>
-                      <label>
-                      <input type="radio" name="course" value="CS 235" id="cs235"/>
-                      CS 235</label>
-                  </td>
-                  <td style="width: 90px">
-                      <br>
-                      <label>
-                      <input type="radio" name="course" value="CS 213" id="cs213"/>
-                      CS 213</label>
-                  </td>
-                    <td style="width: 90px">
+                    <td style="width: 20%">
+                        Name:<br>
+                        <input id="name" type="text" text="" name="name"/>
+                    </td>
+                    <td style="width: 12%">
+                        Course:<br>
+                        <label>
+                            <input type="radio" name="course" value="CS 124" id="cs124" checked />
+                            CS 124</label>
+                    </td>
+                    <td style="width: 12%">
                         <br>
                         <label>
-                        <input type="radio" name="course" value="Other" id="Other"/>
-                        Other</label>
+                            <input type="radio" name="course" value="CS 165" id="cs165"/>
+                            CS 165</label>
                     </td>
-                    <td style="width: 100px;" align="right">
+                    <td style="width: 12%">
+                        <br>
+                        <label>
+                            <input type="radio" name="course" value="CS 235" id="cs235"/>
+                            CS 235</label>
+                    </td>
+                    <td style="width: 12%">
+                        <br>
+                        <label>
+                            <input type="radio" name="course" value="CS 213" id="cs213"/>
+                            CS 213</label>
+                    </td>
+                    <td style="width: 12%">
+                        <br>
+                        <label>
+                            <input type="radio" name="course" value="Other" id="Other"/>
+                            Other</label>
+                    </td>
+                    <td style="width: 7%;"></td>
+                    <td style="width: 20%;" align="right">
                         <br>
                         <input disabled id="addBtn" type="submit" value="Add to Queue"
-                           class="complementaryBackgroundColor baseBlue">
+                               class="complementaryBackgroundColor dis">
                         </input>
                     </td>
                 </tr>
-              </tbody>
-          </table>
-      </div>
+                </tbody>
+            </table>
+        </div>
     </form>
+    </div>
+<br>
+  <div id="queue">
+      <table class="striped responsive-table" id="queueTable">
+          <thead class="queueHead">
+          <tr><th class="queueTitle" colspan="4">Queue</th></tr>
+          <tr>
+              <th class="left">Name</th>
+              <th class="center">Minutes In Queue</th>
+              <th class="center">Course</th>
+              <th class="right">Lab Asst Name</th>
+          </tr>
+          </thead>
+          <tbody id="queueTableBody">
+          <tr id="tr0">
+              <td class="left">Billy Sue</td>
+              <td id="td0" class="center">7</td>
+              <td class="center">CS 124</td>
+              <td class="right">Larry Atwood</td>
+          </tr>
+          </tbody>
+      </table>
   </div>
 </body>
 </html>
