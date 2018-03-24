@@ -18,11 +18,17 @@ $(document).ready(function(){
             document.getElementById(temp).innerHTML = times[i];
         }
     }
+
     $("#name").change(function(){
-        if ($("#name").value === "") {
-            $("#addBtn").prop("disabled", true)
+        console.log( $("#name").val() + " 5")
+        if ($("#name").val() === "") {
+             console.log("true");
+            document.getElementById("addBtn").disabled = true;
+//          $("#addBtn").prop("disabled", true);
         } else {
-            $("#addBtn").prop("disabled", false)
+            console.log("false");
+             document.getElementById("addBtn").disabled = false;
+//            $("#addBtn").prop("disabled", false);
         }
     });
 
@@ -52,8 +58,12 @@ $(document).ready(function(){
 
     // call API to add new student
     function addStudentToQueue(student) {
-        $queue.append('<tr id="tr' + student.id + '"><td>' + student.name + '</td><td>' + student.course + '</td><td id="td'
-        + student.id + '">' + times[student.id] + '</td><td></td></tr>')
+        $queue.append('<tr id="tr' + student.id + '">'
+        + '<td class="left">' + student.name + '</td>'
+        + '<td id="td' + student.id + '" class="center">' + times[student.id] + '</td>'
+        + '<td class="center">' + student.course + '</td>'
+        + '<td></td'
+        + '</tr>')
     }
 
     function updateStudentInQueue(student) {
@@ -86,6 +96,32 @@ $(document).ready(function(){
             }
         });
     });
+
+    $("#addBtn2").on('click', function(e){
+
+            e.stopPropagation() ;
+            e.preventDefault();
+
+            $.ajax({
+                url: 'http://localhost:8080/student',
+                type : "POST",
+                contentType : 'application/json',
+                dataType: "json",
+                data : getFormData("addHelpRequest"),
+                success : function(student) {
+
+                    if (times.length < student.id) {
+                        times[student.id] = 1;
+                    } else {
+                        times.push(1);
+                    }
+                    addStudentToQueue(student);
+                },
+                error: function(xhr, resp, text) {
+                    console.log(xhr, resp, text);
+                }
+            });
+        });
 });
 
 function resetTimes() {
